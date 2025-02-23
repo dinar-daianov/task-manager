@@ -22,20 +22,20 @@ class StoreTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'due_date' => 'required',
-            'priority' => 'required',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
+            'category_id' => 'required|exists:categories,id'
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required' => 'Title is required.',
-            'description.required' => 'Description is required.',
-            'due_date.required' => 'Due date is required.',
-            'priority.required' => 'Priority is required.',
+            'title.required' => 'Title is required',
+            'description.required' => 'Description is required',
+            'due_date.required' => 'Due date is required',
+            'priority.required' => 'Priority is required',
+            'category_id.required' => 'Category is required'
         ];
     }
 }
