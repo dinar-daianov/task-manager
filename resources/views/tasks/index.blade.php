@@ -9,7 +9,9 @@
         <ul>
             @foreach ($tasks as $task)
                 <li>
-                    {{ $task->title }} (Категория: {{ $task->category?->name ?? 'Без категории' }})
+                    <p>Название задачи: {{ $task->title }}</p>
+                    <p>Категория: {{ $task->category?->name ?? 'Без категории' }}</p>
+                    <p>Приоритет: {{ $task->priority }}</p>
                     <a href="{{ route('tasks.edit', $task) }}">Редактировать</a>
                 </li>
             @endforeach

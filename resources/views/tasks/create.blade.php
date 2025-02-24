@@ -56,6 +56,41 @@
             @enderror
         </div>
 
+        <!-- Выбор даты -->
+        <div>
+            <label for="due_date">
+                <input type="date" name="due_date" id="due_date">
+            </label>
+            @error('due_date')
+                <span class="text-danger">
+                    {{ $message }}
+                </span>
+            @enderror
+        </div>
+
+        <!-- Выбор приоритета -->
+        <div>
+            <label for="priority">
+                Приоритет:
+            </label>
+            <select name="priority" id="priority" required>
+                <option value="low" {{ old('priority', 'low') === 'low' ? 'selected' : '' }}>
+                    Низкий
+                </option>
+                <option value="medium" {{ old('priority', 'low') === 'medium' ? 'selected' : '' }}>
+                    Средний
+                </option>
+                <option value="high" {{ old('priority', 'low') === 'high' ? 'selected' : '' }}>
+                    Высокий
+                </option>
+            </select>
+            @error('priority')
+                <span class="text-danger">
+                    {{ $message }}
+                </span>
+            @enderror
+        </div>
+
         <!-- Кнопка отправки -->
         <button type="submit">Создать задачу</button>
     </form>
